@@ -1,0 +1,288 @@
+//  mixins
+
+@mixin flexcenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin font {
+  font-family: helvetica;
+  font-weight: bold;
+  text-align: center;
+  color: white;
+}
+
+//  main styleing
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.main {
+  width: 100vw;
+  height: 100vh;
+  @include flexcenter;
+  background: #27282c;
+  justify-content: space-evenly;
+  .player {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    height: 90%;
+    width: 25rem;
+    background: #27282c;
+    border-radius: 2rem;
+    background: linear-gradient(145deg, #232428, #2a2b2f);
+    box-shadow: 8px 8px 16px #131416, -8px -8px 16px #3b3c42;
+    .top {
+      width: 80%;
+      display: flex;
+      justify-content: space-between;
+      margin-top: 2rem;
+    }
+
+    .thumbnail {
+      width: 20rem;
+      height: 42%;
+      background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+        url("../img/3.jpg");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      margin-top: 2.7rem;
+      margin-bottom: 1rem;
+      border-radius: 50%;
+      box-shadow: 1px 9px 5px 5px #0a0a0a, 1px 4px 0px 15px #1e1f20;
+      color: #f04b15;
+      transform: scale(1);
+      transition: all 0.3s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+      &:hover {
+        transform: scale(0.94);
+      }
+    }
+    .about {
+      word-wrap: break-word;
+      overflow: scroll;
+      padding: 0.15rem;
+      font-family: monospace;
+      margin-top: 2rem;
+      margin-bottom: 7px;
+      line-height: 1.85rem;
+      color: rgba(255, 255, 255, 0.678);
+      font-size: 1.2rem;
+      font-weight: bold;
+      width: 70%;
+      transform: scale(1.14);
+      text-align: center;
+      height: 2rem;
+      border-radius: 0px;
+      background: linear-gradient(145deg, #2a2b2f, #232428);
+      box-shadow: 8px 8px 16px #131416, -8px -8px 16px #3b3c42;
+      transition: all 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
+      border-radius: 10px;
+      &:hover {
+        color: #f04b15;
+        transform: scale(1);
+      }
+    }
+    .bar {
+      width: 320px;
+      height: 5px;
+      background: rgba(0, 0, 0, 0.842);
+      margin-top: 2.05rem;
+      margin-bottom: 5px;
+      border-radius: 0px;
+      background: linear-gradient(145deg, #2a2b2f, #232428);
+      box-shadow: 8px 8px 16px #131416, -8px -8px 16px #3b3c42;
+      .line {
+        width: 20%;
+        height: 100%;
+        background: #f04b15;
+        position: relative;
+        transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        &:hover {
+          transform: scale(1.2);
+        }
+
+        &::after {
+          content: "";
+          color: lime;
+          position: absolute;
+          right: -2px;
+          height: 1rem;
+          width: 1rem;
+          background: inherit;
+          border-radius: 50%;
+          top: -5px;
+        }
+      }
+    }
+    .buttons {
+      width: 100%;
+      margin-top: 2rem;
+      font-size: 2rem;
+      display: flex;
+      justify-content: space-evenly;
+      padding: 1rem;
+    }
+  }
+}
+
+.btn,
+.ig,
+.logo {
+  width: 3.2rem;
+  height: 3.2rem;
+  padding: 10px;
+  @include flexcenter;
+  // box-shadow: 10px 10px 14px #1e1f20, -10px -10px 14px #1e1f20;
+  border-radius: 0px;
+  background: linear-gradient(145deg, #2a2b2f, #232428);
+  box-shadow: 8px 8px 16px #131416, -8px -8px 16px #3b3c42;
+  background: rgba(0, 0, 0, 0.767);
+  color: rgba(255, 255, 255, 0.801);
+  border-radius: 3rem;
+  transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  &:hover {
+    color: #f04b15;
+    transform: scale(1.2);
+  }
+}
+.play {
+  color: #f04b15;
+}
+
+.list {
+  height: 90%;
+  width: 25rem;
+  background: #27282c;
+  border-radius: 2rem;
+  background: linear-gradient(145deg, #232428, #2a2b2f);
+  box-shadow: 8px 8px 16px #131416, -8px -8px 16px #3b3c42;
+  .top {
+    margin-top: 2rem;
+    width: 100%;
+    @include font();
+    height: 20px;
+    @include flexcenter();
+    opacity: 0.5;
+  }
+
+  .mid {
+    width: 100%;
+    @include flexcenter();
+    justify-content: space-evenly;
+    margin-top: 2rem;
+    margin-bottom: 0.5rem;
+    .left {
+      @include font();
+      @include flexcenter();
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(145deg, #232428, #2a2b2f);
+      box-shadow: 8px 8px 16px #131416, -8px -8px 16px #3b3c42;
+      border-radius: 50%;
+    }
+    .right {
+      @include font();
+      @include flexcenter();
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(145deg, #232428, #2a2b2f);
+      box-shadow: 8px 8px 16px #131416, -8px -8px 16px #3b3c42;
+      border-radius: 50%;
+    }
+    .middle {
+      @include font();
+      @include flexcenter();
+      width: 40px;
+      width: 150px;
+      height: 150px;
+      background: linear-gradient(145deg, #232428, #2a2b2f);
+      box-shadow: 8px 8px 16px #131416, -8px -8px 16px #3b3c42;
+      border-radius: 50%;
+      .img {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        background: linear-gradient(145deg, #232428, #2a2b2f);
+        box-shadow: 8px 8px 16px #131416, -8px -8px 16px #3b3c42;
+        border-radius: inherit;
+        transition: all 0.3s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+        &:hover {
+          transform: scale(1.1);
+        }
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          object-position: center;
+        }
+      }
+    }
+  }
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+.scroll {
+  width: 100%;
+  height: 430px;
+  overflow: scroll;
+}
+
+.songs {
+  width: 100%;
+  height: auto;
+  @include flexcenter();
+  flex-direction: column;
+  gap: 1rem;
+  overflow: scroll;
+  transform: scale(0.95);
+
+  .song {
+    // background: linear-gradient(145deg, #232428, #2a2b2f);
+    // box-shadow: 8px 8px 16px #131416, -8px -8px 16px #3b3c42;
+    // border-top: 3px solid #3b3c42;
+    border-bottom: 3px solid #3b3c42;
+    // border-radius: 2rem;
+    width: 100%;
+    height: auto;
+    @include flexcenter();
+    justify-content: space-evenly;
+    transform: scale(0.9);
+    gap: 7rem;
+    transition: all 0.3s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+    &:hover {
+      transform: scale(0.8);
+    }
+    .left {
+      width: 50%;
+      word-wrap: break-word;
+      overflow: scroll;
+      height: 50px;
+      padding: 0.6rem;
+    }
+    h3 {
+      @include font();
+    }
+    h5 {
+      margin-top: -12px;
+      @include font();
+      opacity: 0.6;
+      transform: scale(0.9);
+    }
+    .right {
+      transform: scale(0.7);
+      #lbtn {
+        padding: 1.3rem;
+      }
+      .gl {
+        transform: (scale(2));
+      }
+    }
+  }
+}
